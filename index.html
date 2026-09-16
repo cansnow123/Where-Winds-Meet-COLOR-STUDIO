@@ -22,7 +22,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="./styles.css?v=20260916.3">
+  <link rel="stylesheet" href="./styles.css?v=20260916.9">
 </head>
 <body>
   <div class="page-shell">
@@ -36,6 +36,13 @@
         </div>
       </div>
       <div class="topbar-actions">
+        <a
+          class="github-link"
+          href="https://github.com/cansnow123/Where-Winds-Meet-COLOR-STUDIO"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="在 GitHub 查看 Where Winds Meet COLOR-STUDIO 开源项目"
+        >GitHub 开源</a>
         <button id="loadSampleBtn" class="ghost-button" type="button">载入示例</button>
         <button id="saveDraftBtn" class="ghost-button" type="button">保存草稿</button>
         <button id="clearEditorBtn" class="ghost-button" type="button">清空内容</button>
@@ -79,10 +86,13 @@
         <div class="mode-panel-wrap">
           <section class="mode-panel is-active" data-mode-panel="single">
             <div class="compact-controls">
-              <label class="field">
+              <div class="field">
                 <span>单色值</span>
-                <input id="singleColorInput" type="color" value="#ff6a3d">
-              </label>
+                <label class="single-color-display" title="选择单色">
+                  <span class="color-swatch single-color-swatch" data-target="singleColorInput" style="background:#ff6a3d" aria-hidden="true"></span>
+                  <input id="singleColorInput" class="single-color-picker" type="color" value="#ff6a3d" aria-label="选择单色值">
+                </label>
+              </div>
               <label class="field">
                 <span>十六进制</span>
                 <input id="singleHexInput" type="text" value="#ff6a3d">

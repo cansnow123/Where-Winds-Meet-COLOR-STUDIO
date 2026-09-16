@@ -41,9 +41,9 @@ body::before {
 }
 
 .page-shell {
-  width: min(1380px, calc(100vw - 28px));
+  width: min(1360px, calc(100vw - 24px));
   margin: 0 auto;
-  padding: 12px 0 20px;
+  padding: 6px 0 8px;
 }
 
 .topbar,
@@ -77,33 +77,33 @@ body::before {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 18px;
-  padding: 14px 22px;
+  gap: 14px;
+  padding: 10px 16px;
 }
 
 /* 头部品牌区：logo + 标题文字，水平排列 */
 .brand-block {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   min-width: 0;
 }
 
 .brand-logo {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   flex-shrink: 0;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(40, 26, 18, 0.18);
+  border-radius: 11px;
+  box-shadow: 0 4px 14px rgba(40, 26, 18, 0.16);
   background: rgba(255, 251, 244, 0.84);
-  padding: 5px;
+  padding: 4px;
 }
 
 .eyebrow,
 .panel-kicker {
-  margin: 0 0 8px;
+  margin: 0 0 6px;
   color: var(--ember);
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.22em;
 }
@@ -115,14 +115,19 @@ h2 {
 }
 
 h1 {
-  font-size: clamp(1.55rem, 1.8vw, 2.1rem);
+  font-size: clamp(1.42rem, 1.65vw, 1.95rem);
+}
+
+h2 {
+  font-size: clamp(1.18rem, 1.08vw, 1.46rem);
+  line-height: 1.2;
 }
 
 .subtext {
-  margin: 6px 0 0;
+  margin: 4px 0 0;
   color: var(--ink-soft);
-  line-height: 1.6;
-  font-size: 0.92rem;
+  line-height: 1.45;
+  font-size: 0.86rem;
 }
 
 .topbar-actions,
@@ -134,6 +139,32 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+.topbar-actions {
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(90, 61, 36, 0.14);
+  background: rgba(255, 251, 244, 0.72);
+  color: var(--green);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 140ms ease, box-shadow 140ms ease, opacity 140ms ease;
+}
+
+.github-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(24, 50, 45, 0.12);
 }
 
 .workflow-banner {
@@ -162,12 +193,12 @@ h1 {
 .studio-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 14px;
-  margin-top: 12px;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .panel {
-  padding: 16px 18px;
+  padding: 12px 14px;
 }
 
 .panel-head,
@@ -180,13 +211,13 @@ h1 {
 
 .current-color-box {
   display: grid;
-  gap: 4px;
-  min-width: 132px;
-  padding: 8px 12px;
-  border-radius: 14px;
+  gap: 2px;
+  min-width: 124px;
+  padding: 5px 8px;
+  border-radius: 12px;
   background: rgba(255, 251, 243, 0.84);
   border: 1px solid rgba(90, 61, 36, 0.12);
-  font-size: 0.9rem;
+  font-size: 0.84rem;
 }
 
 .current-color-box span {
@@ -202,7 +233,7 @@ h1 {
 .preview-shell,
 .collapsible-body,
 .custom-entry {
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
 .section-caption {
@@ -212,13 +243,13 @@ h1 {
   align-items: center;
   margin-bottom: 8px;
   color: var(--ink-soft);
-  font-size: 0.9rem;
+  font-size: 0.84rem;
 }
 
 .mode-tabs {
   display: flex;
   gap: 10px;
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
 .mode-tab,
@@ -247,11 +278,11 @@ h1 {
 .ink-button,
 .seal-button,
 .chip-button {
-  min-height: 36px;
-  padding: 8px 14px;
+  min-height: 32px;
+  padding: 6px 10px;
   border-radius: 999px;
   font-weight: 700;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
 }
 
 .mode-tab,
@@ -281,9 +312,9 @@ h1 {
 }
 
 .mode-panel-wrap {
-  margin-top: 10px;
+  margin-top: 8px;
   padding: 12px 14px;
-  border-radius: 16px;
+  border-radius: 14px;
   background: rgba(255, 250, 241, 0.62);
   border: 1px solid rgba(90, 61, 36, 0.08);
 }
@@ -306,6 +337,40 @@ h1 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.single-color-display {
+  position: relative;
+  display: block;
+  min-height: 42px;
+  padding: 3px;
+  border-radius: 12px;
+  background: rgba(255, 252, 245, 0.92);
+  border: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.single-color-swatch {
+  display: block;
+  min-height: 100%;
+  border-radius: 9px;
+}
+
+.single-color-picker {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.single-color-display:focus-within {
+  outline: 3px solid rgba(166, 59, 29, 0.45);
+  outline-offset: 2px;
+}
+
 .custom-grid {
   grid-template-columns: 1.2fr 0.7fr 0.8fr 0.8fr;
 }
@@ -313,9 +378,9 @@ h1 {
 .field {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   color: var(--ink-soft);
-  font-size: 0.92rem;
+  font-size: 0.86rem;
 }
 
 .field span {
@@ -326,8 +391,8 @@ input,
 textarea {
   width: 100%;
   border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 10px 12px;
+  border-radius: 12px;
+  padding: 8px 10px;
   color: var(--ink);
   background: rgba(255, 252, 245, 0.92);
   outline: none;
@@ -344,9 +409,9 @@ textarea:focus,
 
 textarea {
   resize: vertical;
-  min-height: 110px;
-  line-height: 1.55;
-  font-size: 0.95rem;
+  min-height: 100px;
+  line-height: 1.5;
+  font-size: 0.92rem;
 }
 
 .field-output textarea,
@@ -355,23 +420,27 @@ textarea {
 }
 
 .swatch-row {
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 10px;
+  align-items: stretch;
 }
 
 /* 双渐变：两个大方块 + 箭头 */
 .swatch-pair {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   padding: 12px;
-  border-radius: 14px;
+  border-radius: 12px;
   background: rgba(255, 251, 244, 0.76);
   border: 1px solid rgba(90, 61, 36, 0.12);
 }
 
 .swatch-arrow {
   color: var(--ink-soft);
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
@@ -381,7 +450,7 @@ textarea {
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 8px;
   padding: 12px;
-  border-radius: 14px;
+  border-radius: 12px;
   background: rgba(255, 251, 244, 0.76);
   border: 1px solid rgba(90, 61, 36, 0.12);
 }
@@ -395,9 +464,10 @@ textarea {
 .gradient-swatch-wrapper {
   position: relative;
   display: block;
-  flex: 0 0 56px;
-  width: 56px;
-  height: 56px;
+  flex: 1 1 0;
+  width: auto;
+  height: 34px;
+  min-width: 0;
 }
 
 .gradient-swatch-wrapper .color-swatch {
@@ -411,8 +481,8 @@ textarea {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 36px;
-  border-radius: 12px;
+  min-height: 34px;
+  border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0.7);
   box-shadow: 0 6px 16px rgba(40, 26, 18, 0.18);
   cursor: pointer;
@@ -454,6 +524,11 @@ input[type="color"].gradient-picker {
   cursor: pointer;
 }
 
+.swatch-pair .color-swatch {
+  min-height: 34px;
+  border-radius: 11px;
+}
+
 .gradient-swatch-wrapper:focus-within {
   outline: 3px solid rgba(166, 59, 29, 0.45);
   outline-offset: 2px;
@@ -464,18 +539,20 @@ input[type="color"].gradient-picker {
   display: block;
   margin-top: 10px;
   color: var(--ink-soft);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
 .swatch-button {
   display: grid;
-  gap: 6px;
+  gap: 4px;
   place-items: center;
-  width: 64px;
-  padding: 8px 6px;
-  border-radius: 14px;
+  width: 100%;
+  max-width: 64px;
+  padding: 7px 5px;
+  border-radius: 12px;
   background: rgba(255, 252, 246, 0.88);
   border: 1px solid rgba(90, 61, 36, 0.12);
+  justify-self: center;
 }
 
 .swatch-button.is-active {
@@ -483,45 +560,45 @@ input[type="color"].gradient-picker {
 }
 
 .swatch-dot {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   border: 2px solid rgba(255, 255, 255, 0.62);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
 }
 
 .swatch-meta {
   display: grid;
   gap: 2px;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.74rem;
 }
 
 .gradient-strip {
-  height: 14px;
-  margin-top: 10px;
+  height: 12px;
+  margin-top: 8px;
   border-radius: 999px;
   border: 1px solid rgba(90, 61, 36, 0.12);
   background: linear-gradient(90deg, #ff6a3d, #ffd166);
 }
 
 .editor-card {
-  padding: 12px 14px;
-  border-radius: 18px;
+  padding: 10px 12px;
+  border-radius: 16px;
   border: 1px solid rgba(90, 61, 36, 0.12);
   background: rgba(255, 250, 241, 0.72);
 }
 
 .rich-editor {
-  min-height: 240px;
-  margin-top: 10px;
-  padding: 14px 16px;
-  border-radius: 16px;
+  min-height: 204px;
+  margin-top: 6px;
+  padding: 12px 14px;
+  border-radius: 14px;
   border: 1px solid var(--line);
   background: var(--paper-strong);
   white-space: pre-wrap;
-  line-height: 1.7;
-  font-size: 1rem;
+  line-height: 1.62;
+  font-size: 0.96rem;
   outline: none;
 }
 
@@ -536,14 +613,14 @@ input[type="color"].gradient-picker {
   gap: 4px;
   margin-top: 8px;
   color: rgba(40, 26, 18, 0.62);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
 .composer-result {
   display: grid;
-  gap: 10px;
-  margin-top: 12px;
-  padding: 12px;
+  gap: 8px;
+  margin-top: 6px;
+  padding: 8px;
   border-top: 1px solid rgba(90, 61, 36, 0.12);
 }
 
@@ -551,7 +628,7 @@ input[type="color"].gradient-picker {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .composer-result .stats {
@@ -563,20 +640,20 @@ input[type="color"].gradient-picker {
 }
 
 .tag-drawer summary {
-  min-height: 36px;
+  min-height: 32px;
   display: flex;
   align-items: center;
   color: var(--green);
   cursor: pointer;
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 700;
 }
 
 .tag-drawer textarea {
-  min-height: 112px;
-  padding: 10px 12px;
+  min-height: 96px;
+  padding: 8px 10px;
   font-family: "Consolas", "Cascadia Code", monospace;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
 }
 
 .preview-shell {
@@ -613,11 +690,11 @@ input[type="color"].gradient-picker {
 }
 
 .status-text {
-  margin: 10px 0 0;
-  min-height: 1.4em;
+  margin: 6px 0 0;
+  min-height: 1.2em;
   color: var(--ember-deep);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.84rem;
 }
 
 .collapsible-panel {
@@ -656,8 +733,16 @@ input[type="color"].gradient-picker {
     flex-direction: column;
   }
 
+  .topbar-actions {
+    justify-content: flex-start;
+  }
+
   .compact-controls {
     grid-template-columns: 1fr;
+  }
+
+  .swatch-row {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
@@ -678,8 +763,8 @@ input[type="color"].gradient-picker {
     min-height: 260px;
   }
 
-  .swatch-button {
-    width: 64px;
+  .swatch-row {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .swatch-grid {

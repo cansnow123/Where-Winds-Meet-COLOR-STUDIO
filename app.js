@@ -520,6 +520,10 @@ function syncCurrentColorDisplay() {
   const normalized = normalizeHex(elements.singleHexInput.value);
   elements.currentColorDisplay.textContent = normalized;
   elements.singleColorInput.value = normalized.toLowerCase();
+  const singleSwatch = document.querySelector('.single-color-swatch[data-target="singleColorInput"]');
+  if (singleSwatch) {
+    singleSwatch.style.background = normalized;
+  }
 }
 
 function updateGradientStrips() {
