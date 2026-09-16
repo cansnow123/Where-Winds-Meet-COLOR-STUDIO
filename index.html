@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>燕云十六声 彩字工坊</title>
+  <link rel="icon" type="image/svg+xml" href="./logo.svg">
+  <link rel="apple-touch-icon" href="./logo.svg">
+  <link rel="mask-icon" href="./logo.svg" color="#FF743E">
+  <meta name="theme-color" content="#FF743E">
+  <script>
+    (() => {
+      const desktopOverride = new URLSearchParams(window.location.search).get("desktop") === "1";
+      const usesMobilePrimaryInput = window.matchMedia("(pointer: coarse)").matches;
+      const compactViewport = window.matchMedia("(max-width: 1180px)").matches;
+
+      if (!desktopOverride && usesMobilePrimaryInput && compactViewport) {
+        const mobileUrl = new URL("./APP/", window.location.href);
+        mobileUrl.search = window.location.search;
+        mobileUrl.hash = window.location.hash;
+        window.location.replace(mobileUrl.href);
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="./styles.css?v=20260916.2">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="brand-block">
+        <img src="./logo.svg" alt="燕云十六声彩字工坊 Logo" class="brand-logo">
+        <div>
+          <p class="eyebrow">YANYUN COLOR STUDIO</p>
+          <h1>燕云十六声 彩字工坊</h1>
+          <p class="subtext">先输入，后框选，再点颜色，最后一键复制。</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button id="loadSampleBtn" class="ghost-button" type="button">载入示例</button>
+        <button id="saveDraftBtn" class="ghost-button" type="button">保存草稿</button>
+        <button id="clearEditorBtn" class="ghost-button" type="button">清空内容</button>
+      </div>
+    </header>
+
+    <!-- <section class="workflow-banner">
+      <span class="step-pill">1. 输入文案</span>
+      <span class="step-pill">2. 框选想变色的字</span>
+      <span class="step-pill">3. 点单色或渐变</span>
+      <span class="step-pill">4. 复制最终标签</span>
+    </section> -->
+
+    <main class="studio-grid">
+      <section class="panel control-panel">
+        <div class="panel-head">
+          <div>
+            <p class="panel-kicker">可视编辑</p>
+            <h2>一边选字，一边上色</h2>
+          </div>
+          <div class="current-color-box">
+            <span>当前单色</span>
+            <strong id="currentColorDisplay">#ff6a3d</strong>
+          </div>
+        </div>
+
+        <div class="swatch-section">
+          <div class="section-caption">
+            <span>快捷色板</span>
+            <small>点一下切换当前色；框选了文字时会直接套上去</small>
+          </div>
+          <div id="presetSwatches" class="swatch-row"></div>
+        </div>
+
+        <div class="mode-tabs" id="modeTabs">
+          <button class="mode-tab is-active" data-mode="single" type="button">单色</button>
+          <button class="mode-tab" data-mode="gradient" type="button">双渐变</button>
+          <button class="mode-tab" data-mode="multi" type="button">多色渐变</button>
+        </div>
+
+        <div class="mode-panel-wrap">
+          <section class="mode-panel is-active" data-mode-panel="single">
+            <div class="compact-controls">
+              <label class="field">
+                <span>单色值</span>
+                <input id="singleColorInput" type="color" value="#ff6a3d">
+              </label>
+              <label class="field">
+                <span>十六进制</span>
+                <input id="singleHexInput" type="text" value="#ff6a3d">
+              </label>
+            </div>
+          </section>
+
+          <section class="mode-panel" data-mode-panel="gradient">
+            <div class="field">
+              <span>双渐变色（点方块换色）</span>
+              <div class="swatch-pair">
+                <label class="gradient-swatch-wrapper" title="选择起始色">
+                  <span class="color-swatch" data-target="gradientStartInput" style="background:#ff6a3d" aria-hidden="true"></span>
+                  <input id="gradientStartInput" class="gradient-picker" type="color" value="#ff6a3d" aria-label="选择起始色">
+                </label>
+                <span class="swatch-arrow">→</span>
+                <label class="gradient-swatch-wrapper" title="选择结束色">
+                  <span class="color-swatch" data-target="gradientEndInput" style="background:#ffd166" aria-hidden="true"></span>
+                  <input id="gradientEndInput" class="gradient-picker" type="color" value="#ffd166" aria-label="选择结束色">
+                </label>
+              </div>
+            </div>
+            <div id="gradientStrip" class="gradient-strip"></div>
+          </section>
+
+          <section class="mode-panel" data-mode-panel="multi">
+            <div class="field">
+              <span>多色渐变色板（点方块换色）</span>
+              <div id="paletteSwatches" class="swatch-grid"></div>
+              <small class="field-hint">文本将在这 <span id="paletteCount">0</span> 个颜色之间平滑过渡。</small>
+            </div>
+            <div id="paletteStrip" class="gradient-strip gradient-strip-multi"></div>
+          </section>
+        </div>
+
+        <div class="action-row">
+          <button id="applySelectionBtn" class="ink-button" type="button">给选中内容上色</button>
+          <button id="applyAllBtn" class="ghost-button" type="button">整段套用当前模式</button>
+          <button id="clearSelectionStyleBtn" class="ghost-button" type="button">清掉选中颜色</button>
+          <button id="resetAllStylesBtn" class="ghost-button" type="button">全部恢复默认色</button>
+        </div>
+
+        <div class="editor-card">
+          <div class="editor-card-head">
+            <div>
+              <p class="panel-kicker">输入区</p>
+              <h2>直接在这里写</h2>
+            </div>
+            <div id="selectionHint" class="selection-hint">未选中文字</div>
+          </div>
+          <div
+            id="richEditor"
+            class="rich-editor"
+            contenteditable="true"
+            spellcheck="false"
+            aria-label="彩字可视编辑区"
+          ></div>
+          <div class="editor-tips">
+            <span>支持直接输入、粘贴、回车换行。</span>
+          </div>
+          <div class="composer-result" aria-label="彩字结果">
+            <div class="composer-result-row">
+              <div class="stats" id="stats" aria-label="彩字统计"></div>
+              <button id="copyExportBtn" class="seal-button" type="button">复制彩字</button>
+            </div>
+            <details class="tag-drawer">
+              <summary>查看标签代码</summary>
+              <textarea id="exportOutput" readonly spellcheck="false" aria-label="最终可复制代码"></textarea>
+            </details>
+            <p id="status" class="status-text" role="status" aria-live="polite">准备就绪。</p>
+          </div>
+          <div id="preview" hidden aria-hidden="true"></div>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <script src="./app.js?v=20260916.2" type="module"></script>
+</body>
+</html>
