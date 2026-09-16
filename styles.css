@@ -130,7 +130,6 @@ h1 {
 .stats,
 .swatch-row,
 .filter-row,
-.selected-pool,
 .panel-actions {
   display: flex;
   flex-wrap: wrap;
@@ -148,7 +147,6 @@ h1 {
 .step-pill,
 .stat-pill,
 .tag-pill,
-.pool-pill,
 .selection-hint {
   display: inline-flex;
   align-items: center;
@@ -299,7 +297,6 @@ h1 {
 }
 
 .compact-controls,
-.library-tools,
 .custom-grid {
   display: grid;
   gap: 14px;
@@ -307,11 +304,6 @@ h1 {
 
 .compact-controls {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.library-tools {
-  grid-template-columns: 1.2fr 1fr;
-  align-items: end;
 }
 
 .custom-grid {
@@ -628,54 +620,6 @@ input[type="color"].gradient-picker {
   font-size: 0.9rem;
 }
 
-.library-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 14px;
-}
-
-.library-card {
-  display: grid;
-  gap: 14px;
-  padding: 16px;
-  border-radius: 20px;
-  border: 1px solid rgba(90, 61, 36, 0.12);
-  background: rgba(255, 251, 244, 0.8);
-}
-
-.library-card.is-selected {
-  border-color: rgba(166, 59, 29, 0.34);
-  box-shadow: 0 14px 32px rgba(127, 36, 16, 0.08);
-}
-
-.library-copy {
-  margin: 0;
-  line-height: 1.7;
-}
-
-.card-meta,
-.card-footer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.selected-pool {
-  margin: 16px 0;
-}
-
-.selected-pool:empty::before {
-  content: "还没把段子加入灵感池。";
-  color: rgba(40, 26, 18, 0.46);
-}
-
-.empty-library {
-  padding: 18px;
-  border-radius: 18px;
-  border: 1px dashed rgba(90, 61, 36, 0.22);
-  color: rgba(40, 26, 18, 0.54);
-}
-
 .collapsible-panel {
   margin-top: 16px;
 }
@@ -699,7 +643,6 @@ input[type="color"].gradient-picker {
 
 @media (max-width: 1180px) {
   .studio-grid,
-  .library-tools,
   .custom-grid {
     grid-template-columns: 1fr;
   }

@@ -1,4 +1,4 @@
-# 燕云十六声 彩字工坊
+# 燕云十六声 彩字工坊 Where Winds Meet COLOR-STUDIO
 
 一个纯静态、本地可直接打开的彩字文案工具，包含：
 
@@ -37,6 +37,21 @@
 - 编辑器中的渐变视觉不受影响，压缩只作用于复制出的游戏标签。
 
 ## 修改记录
+
+### 2026-09-16 清理历史文库遗留资源
+
+- 删除 `library.json`：该文件属于旧版“乐子文库 / 灵感池”功能的历史数据，不再参与当前项目运行
+- 清理 `styles.css` 中与旧文库相关的残留样式：
+  - `.selected-pool`
+  - `.pool-pill`
+  - `.library-tools`
+  - `.library-list`
+  - `.library-card`
+  - `.library-copy`
+  - `.card-meta`
+  - `.card-footer`
+  - `.empty-library`
+- 同步移除媒体查询中针对 `.library-tools` 的旧布局适配规则
 
 ### 2026-09-14 渐变导出改为智能分段
 
